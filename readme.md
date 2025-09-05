@@ -157,7 +157,7 @@ Example error response when a category is not found:
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/mrityunjay0/product-management-system.git
+git clone https://github.com/mrityunjay0/Product-Management-System.git
 cd product-management-system
 ```
 

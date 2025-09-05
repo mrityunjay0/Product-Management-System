@@ -22,6 +22,7 @@ public class GlobalExceptionHandler {
                 LocalDateTime.now()
         );
         return ResponseEntity.status(HttpStatus.CONFLICT).body(exceptionResponseDto);
+
 //        return ResponseEntity.status(HttpStatus.CONFLICT).body(ex.getMessage());
     }
 
