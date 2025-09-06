@@ -32,8 +32,8 @@ public class CategoryController {
     }
 
     // GET CATEGORY BY ID
-    @GetMapping("/get/byId")
-    public ResponseEntity<CategoryDto> getCategoryById(@RequestBody Long id){
+    @GetMapping("/get/{id}")
+    public ResponseEntity<CategoryDto> getCategoryById(@PathVariable Long id){
         return new ResponseEntity<CategoryDto>(categoryService.getCategoryById(id), HttpStatus.OK);
     }
 

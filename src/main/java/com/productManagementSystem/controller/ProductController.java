@@ -31,15 +31,15 @@ public class ProductController {
     }
 
     // GET PRODUCT BY ID
-    @GetMapping("/get/byId")
-    public ResponseEntity<ProductDto> getProductById(@RequestBody Long id){
+    @GetMapping("/get/{idid}")
+    public ResponseEntity<ProductDto> getProductById(@PathVariable Long id){
         return new ResponseEntity<>(productService.getProductById(id), HttpStatus.OK);
     }
 
     // UPDATE PRODUCT
-    @PutMapping("/update/byId")
-    public ResponseEntity<ProductDto> updateProduct(@RequestBody ProductDto productDto){
-        return new ResponseEntity<>(productService.updateProduct(productDto.getId(),productDto), HttpStatus.OK);
+    @PutMapping("/update/{id}")
+    public ResponseEntity<ProductDto> updateProduct(@PathVariable Long id,@RequestBody ProductDto productDto){
+        return new ResponseEntity<>(productService.updateProduct(id,productDto), HttpStatus.OK);
     }
 
     // DELETE PRODUCT
