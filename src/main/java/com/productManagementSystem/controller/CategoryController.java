@@ -4,6 +4,7 @@ import com.productManagementSystem.dto.CategoryDto;
 import com.productManagementSystem.service.CategoryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +20,7 @@ public class CategoryController {
     }
 
     // CREATE CATEGORIES
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')") //Secured("ROLE_ADMIN")
     @PostMapping("/create")
     public ResponseEntity<CategoryDto> createCategory(@RequestBody CategoryDto categoryDto){
         return new ResponseEntity<>(categoryService.createCategory(categoryDto), HttpStatus.CREATED);
@@ -39,6 +41,7 @@ public class CategoryController {
 
 
     // DELETE CATEGORY
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')") //Secured("ROLE_ADMIN")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteCategory(@PathVariable Long id){
         categoryService.deleteCategory(id);
